@@ -1,0 +1,390 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: yellow;
+}
+
+.main-header {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 0px 1px black;
+    background-color: rgb(231, 231, 15);
+}
+
+.main-header .search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 5px;
+    flex: 1;
+    /* Let it take up available space */
+}
+
+.main-header .search-container input {
+    height: 40px;
+    width: 30%;
+    outline: none;
+    font-size: 1rem;
+    border-radius: 5px;
+    padding: 5px;
+    margin-left: 5px;
+    position: relative;
+    left: 40%;
+    transform: translate(-40%);
+}
+
+.main-header .search-container button {
+    height: 40px;
+    width: 80px;
+    border: none;
+    background-color: orange;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+    flex-shrink: 0;
+    /* Prevent the button from shrinking */
+}
+
+.main-header #favicon {
+    font-family: 'Material Symbols Outlined', sans-serif;
+    font-size: 24px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.main-header #favicon span:hover {
+    color: red;
+    overflow: hidden;
+}
+
+.main-header .navigation {
+    display: flex;
+    align-items: center;
+}
+
+.main-header .navigation a {
+    text-decoration: none;
+    padding: 1em;
+    margin: 5px;
+    transition: all 0.5s ease-in-out;
+}
+
+.main-header .navigation a:hover {
+    background-color: #7ac31a;
+    border-radius: 5px;
+    color: black;
+}
+
+.main-header .search-container button:hover {
+    background-color: rgb(221, 152, 25);
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    margin-left: 5%;
+    align-content: space-between;
+    flex-wrap: wrap;
+}
+
+.moviecard {
+    margin: 1em;
+    padding: 0.5em;
+    width: 210px;
+    min-width: 0;
+    background-color: #69b616;
+    color: white;
+    font-family: monospace;
+    font-size: 13px;
+}
+
+.moviecard img {
+    width: 100%;
+}
+
+.moviecard span {
+    float: right;
+}
+
+.moviecard span:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.favContainer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    box-shadow: 0px 0px 1px black;
+    background-color: rgb(231, 231, 15);
+    max-height: 400px;
+    /* Set a maximum height for scrolling */
+    height: auto;
+    overflow-y: scroll;
+    flex-wrap: wrap;
+
+}
+
+.favContainer .sub-header {
+    z-index: 1;
+}
+
+.favContainer .sub-header h1 {
+    text-align: center;
+    cursor: default;
+}
+
+.sub-header {
+    position: fixed;
+    width: 100%;
+}
+
+.favContainer .sub-header .closebtn {
+    float: right;
+    position: absolute;
+    right: 1.5%;
+    top: 0;
+    background-color: red;
+    padding: 0.5em;
+    color: white;
+    font-size: 1rem;
+    width: 30px;
+    text-align: center;
+    display: block;
+    cursor: pointer;
+}
+
+/* Add a scroll button if needed */
+.scroll-btn {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background-color: #0078d4;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Hide the scroll button by default */
+.scroll-btn.hidden {
+    display: none;
+}
+
+/* Styling for the scroll button icon (assuming you're using Font Awesome) */
+.scroll-btn i {
+    font-size: 24px;
+}
+
+.hidden {
+    display: none;
+}
+
+.fav-movie-card {
+    margin: 5px;
+    padding: 0.5em;
+    width: 100%;
+    min-width: 0;
+    background-color: rgb(231, 231, 15);
+    color: white;
+    font-family: monospace;
+    font-size: 13px;
+    display: block;
+    align-items: center;
+    display: table-row;
+    /* Display as table rows */
+    border-bottom: 1px solid white;
+    /* Add a separator between rows */
+}
+
+.fav-movie-card img {
+    width: 80px;
+    margin-right: 10px;
+}
+
+.fav-movie-card .title {
+    flex: 1;
+}
+
+/* below styling for the mobile device  */
+
+@media screen and (max-width: 768px) {
+    .main-header {
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgb(231, 231, 15);
+    }
+
+    .main-header .search-container {
+        position: relative;
+        left: auto;
+        transform: none;
+        margin-top: 20px;
+        width: 100%;
+        flex-direction: column;
+        /* Stack input and button in mobile view */
+        align-items: center;
+        /* Center align input and button in mobile view */
+    }
+
+    .main-header .search-container input {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+
+    }
+
+    .main-header .search-container button:hover {
+        background-color: rgb(221, 152, 25);
+    }
+
+    .main-header .search-container button {
+        width: 20%;
+    }
+
+    .main-header #favicon {
+        cursor: pointer;
+        margin-right: 0;
+        margin-top: 10px;
+        /* Add margin to separate the icon in mobile view */
+    }
+
+    .main-header #favicon span:hover {
+        color: red;
+    }
+
+    .main-header .navigation {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .main-header .navigation a {
+        width: 100%;
+        text-align: center;
+    }
+
+    .main {
+        display: flex;
+        align-items: center;
+        margin-top: 5px;
+        margin-left: 20%;
+        align-content: space-between;
+        flex-wrap: wrap;
+
+
+    }
+
+    .moviecard {
+        margin: 1em;
+        padding: 0.5em;
+        width: 100px;
+        min-width: 0;
+        background-color: #1b5385;
+        color: white;
+        font-family: monospace;
+        font-size: 13px;
+
+
+    }
+
+    .moviecard img {
+        width: 100%;
+    }
+}
+
+.close-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    float: right;
+    margin-right: 10px;
+}
+
+/* style of movies.html */
+.protect .card {
+    display: flex;
+    border: 1px solid rgb(231, 231, 15);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    background-color: rgb(231, 231, 15);
+}
+
+.protect .card img {
+    max-width: 150px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.card-details {
+    flex: 1;
+}
+
+.card-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.card-info {
+    margin-top: 10px;
+}
+
+.protect {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.backToHome {
+    position: absolute;
+    left: 50%;
+    top: 5%;
+    transform: translate(-50%, -5%);
+}
+
+.backToHome a {
+    text-decoration: none;
+    font-weight: bold;
+    padding: 1em;
+}
+
+.backToHome a:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border-radius: 0.1em;
+    box-shadow: 0 0 2 black;
+}
+
+/* 
+
+<div class="protect">
+    <div class="card">
+        <img src="https://assets.mubicdn.net/images/notebook/post_images/33421/images-w1400.jpg?1625400709" alt="${movie.Title}" />
+        <div class="card-details">
+           <div class="card-title">${movie.Title}</div>
+           <div class="card-info">
+              <p><strong>Year:</strong>${movie.Year}</p>
+              <p><strong>Director:</strong>${movie.Director}</p>
+              <p><strong>Release Date:</strong>${movie.ReleaseDate}</p>
+              <p><strong>Description:</strong>${movie.Description}</p>
+           </div>
+        </div>
+    </div>
+   </div>
+
+*/
